@@ -1,10 +1,10 @@
 import 'dotenv/config';
 
-const protocol = process.env.ENABLE_SSL ? 'https' : 'http';
+const protocol = process.env.ENABLE_SSL === 'true' ? 'https' : 'http';
 
 const config = {
   serverName: process.env.PARADISE_SITE_NAME || 'paradise',
-  host: `${process.env.DOMAIN}/api`,
+  host: `${protocol}://${process.env.DOMAIN}/api`,
   links: {
     homepage: `${protocol}://${process.env.DOMAIN}`,
     register: `${protocol}://${process.env.DOMAIN}/register`,

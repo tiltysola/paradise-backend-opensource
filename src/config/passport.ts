@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-const protocol = process.env.ENABLE_SSL ? 'https' : 'http';
+const protocol = process.env.ENABLE_SSL === 'true' ? 'https' : 'http';
 
 const config = {
   logo: process.env.LOGO,

@@ -26,6 +26,7 @@ const initialServer = async (master: boolean) => {
   // Server
   const app = new Koa();
   app.proxy = true;
+  app.use(yggdrasilMiddleware);
 
   // StaticServer
   const koaStaticServer = koaStatic(path.join(process.cwd(), './public'), {});
@@ -42,7 +43,6 @@ const initialServer = async (master: boolean) => {
     },
   }));
   app.use(authMiddleware);
-  app.use(yggdrasilMiddleware);
   app.use(router.routes());
 
   // Port

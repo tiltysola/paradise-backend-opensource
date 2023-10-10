@@ -48,8 +48,6 @@ export default class {
               const session = await sessionService.create(userId, uuid());
               const token = session.getDataValue('token');
               ctx.cookies.set('accessToken', token, {
-                path: '/',
-                domain: process.env.DOMAIN,
                 httpOnly: false,
                 expires: new Date(Date.now() + config.sessionValidTime),
               });

@@ -34,7 +34,7 @@ export default class {
         const filename = `uploads/paradise/textures/${ctx.userId}/${Number(type) === 0 ? 'skin' : 'cape'}/${textId}.png`;
         const hash = await textureService.computeTextureHash(file.path);
         try {
-          if (!fs.existsSync(path.join(process.cwd(), 'cache', filename))) fs.mkdirSync(path.join(process.cwd(), 'cache', filename));
+          if (!fs.existsSync(path.dirname(path.join(process.cwd(), 'cache', filename)))) fs.mkdirSync(path.dirname(path.join(process.cwd(), 'cache', filename)), { recursive: true });
           fs.copyFileSync(file.path, path.join(process.cwd(), 'cache', filename));
           const texture = await textureService.create({
             uuid: textId,

@@ -21,8 +21,6 @@ export default class {
         ctx.body = ctx.code('USER_NOT_LOGIN');
       } else {
         ctx.cookies.set('accessToken', accessToken, {
-          path: '/',
-          domain: process.env.DOMAIN,
           httpOnly: false,
           expires: new Date(Date.now() + config.sessionValidTime),
         });

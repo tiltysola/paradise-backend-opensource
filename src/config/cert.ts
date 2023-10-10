@@ -13,4 +13,4 @@ if (!fs.existsSync(certPath)) {
 
 export const RSAPublic = fs.readFileSync(path.join(certPath, 'rsa.pub'));
 
-export const RSAPrivate = fs.readFileSync(path.join(certPath, 'rsa'))
+export const RSAPrivate = fs.readFileSync(path.join(certPath, 'rsa'));

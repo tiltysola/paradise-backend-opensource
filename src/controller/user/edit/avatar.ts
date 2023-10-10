@@ -19,7 +19,7 @@ export default class {
     } else {
       const avatarId = uuid();
       const filename = `uploads/passport/users/avatar/${ctx.userId}/${avatarId}.${file.mimetype.split('/')[1]}`;
-      if (!fs.existsSync(path.join(process.cwd(), 'cache', filename))) fs.mkdirSync(path.join(process.cwd(), 'cache', filename));
+      if (!fs.existsSync(path.dirname(path.join(process.cwd(), 'cache', filename)))) fs.mkdirSync(path.dirname(path.join(process.cwd(), 'cache', filename)), { recursive: true });
       fs.copyFileSync(file.path, path.join(process.cwd(), 'cache', filename));
       await userService.modify({
         uuid: ctx.userId,

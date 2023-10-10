@@ -16,7 +16,7 @@ DEV_PORT="8002"
 SITE_NAME="椛鸟风月 · 开源项目"
 LOGO="https://cdn.mahoutsukai.cn/assets/tilty/images/tilty_logo.png"
 DOMAIN="paradise.opensource.mahoutsukai.cn"
-ENABLE_SSL=false
+ENABLE_SSL="true"
 
 # Mail Config
 SMTP_HOST="smtp.mxhichina.com"
