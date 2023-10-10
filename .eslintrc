@@ -1,0 +1,25 @@
+{
+  "plugins": ["simple-import-sort"],
+  "extends": "eslint-config-ali/typescript/node",
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^"],
+          ["^@/controller"],
+          ["^@/service"],
+          ["^@/middleware"],
+          ["^@"],
+          ["^@/config"],
+          ["^\\."],
+          ["^\\u0000"]
+        ]
+      }
+    ],
+    "@typescript-eslint/no-require-imports": "off",
+    "require-atomic-updates": "off",
+    "guard-for-in": "off",
+    "max-len": "off"
+  }
+}

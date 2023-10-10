@@ -1,0 +1,30 @@
+# node
+node_modules
+package-lock.json
+pnpm-lock.yaml
+
+# build files
+dist
+
+# cache files
+cache
+
+# public
+public/index.css
+public/index.js
+logs
+
+# test files
+coverage
+
+# system
+.DS_Store
+
+# cert
+cert
+
+# configure
+.env
+
+# database
+paradise.sqlite

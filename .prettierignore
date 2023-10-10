@@ -1,0 +1,5 @@
+# Proceed by eslint
+**/*.js
+**/*.jsx
+**/*.ts
+**/*.tsx
