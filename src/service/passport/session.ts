@@ -2,7 +2,7 @@ import { Op } from 'sequelize';
 
 import sequelize from '@/dbhelper/paradise';
 
-import config from '@/config/passport';
+import config from '@/config/general';
 
 class SessionService {
   /** 创建会话 */

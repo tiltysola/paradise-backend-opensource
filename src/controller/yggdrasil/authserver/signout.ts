@@ -7,7 +7,7 @@ import userService from '@/service/passport/user';
 
 import { extraCodeParadise } from '@/utils/errorCodeList';
 
-import passportConfig from '@/config/passport';
+import config from '@/config/general';
 
 export default class {
   static method = 'post';
@@ -27,7 +27,7 @@ export default class {
       } else {
         const userId = user.getDataValue('uuid');
         const attemptCount = await attemptService.getAttempt(userId, false, 'YGGDRASIL');
-        if (attemptCount >= passportConfig.attempt.maxTimes) {
+        if (attemptCount >= config.attempt.maxTimes) {
           ctx.status = 403;
           ctx.body = ctx.code('USER_ATTEMPT_LIMIT_ERROR');
         } else {

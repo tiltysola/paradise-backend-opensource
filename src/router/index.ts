@@ -5,6 +5,8 @@ import path from 'path';
 
 import loadRouter from '@/scripts/loadRouter';
 
+import config from '@/config/general';
+
 class RouterHelper extends Router {
   constructor() {
     super();
@@ -12,7 +14,12 @@ class RouterHelper extends Router {
     this.get(['/', '/(.*)'], async (ctx) => {
       try {
         ctx.set('content-type', 'text/html');
-        ctx.body = fs.readFileSync(path.join(process.cwd(), './public/paradise.html'));
+        const htmlFile = fs.readFileSync(path.join(process.cwd(), './public/paradise.html')).toString();
+        ctx.body = htmlFile.replace('{SITE_NAME}', config.siteName)
+          .replace('{ENV_CONVARS}', JSON.stringify({
+            siteName: config.siteName,
+            icpCode: config.icpCode,
+          }));
       } catch (err) {
         Logger.critical('[Router]', err);
         ctx.body = ctx.code('PAGE_NOT_FOUND');

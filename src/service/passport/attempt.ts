@@ -2,7 +2,7 @@ import { Op } from 'sequelize';
 
 import sequelize from '@/dbhelper/paradise';
 
-import config from '@/config/passport';
+import config from '@/config/general';
 
 class AttemptService {
   /** 创建一次登录请求记录 */

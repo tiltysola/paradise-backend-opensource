@@ -5,7 +5,7 @@ import { Op } from 'sequelize';
 import sequelize from '@/dbhelper/paradise';
 
 import mailConfig from '@/config/mail';
-import config from '@/config/passport';
+import config from '@/config/general';
 
 const mailTransporter = nodemailer.createTransport({
   host: mailConfig.host,
@@ -19,8 +19,8 @@ const mailGenerator = new Mailgen({
   product: {
     logo: config.logo,
     logoHeight: '64px',
-    name: config.name,
-    link: config.link,
+    name: config.siteName,
+    link: config.gate,
   },
 });
 
@@ -107,9 +107,9 @@ class VerifyService {
   /** 向指定邮箱发送Mail信息 */
   async sendMail(email: string, code: string) {
     return await mailTransporter.sendMail({
-      from: `"${config.name}" <${mailConfig.auth.user}>`,
+      from: `"${config.siteName}" <${mailConfig.auth.user}>`,
       to: email,
-      subject: `[${config.name}] 账户验证邮件`,
+      subject: `[${config.siteName}] 账户验证邮件`,
       html: mailGenerator.generate({
         body: {
           name: '阁下您好',

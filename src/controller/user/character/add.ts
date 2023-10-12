@@ -8,7 +8,7 @@ import userMiddleware from '@/middleware/passport/user';
 import { extraCodeParadise } from '@/utils/errorCodeList';
 import extraRegexp from '@/utils/extraRegexp';
 
-import config from '@/config/paradise';
+import config from '@/config/general';
 
 export default class {
   static method = 'post';

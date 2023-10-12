@@ -2,7 +2,7 @@ import Koa from 'koa';
 
 import { getPublicKey } from '@/utils/validateCertification';
 
-import config from '@/config/paradise';
+import config from '@/config/general';
 
 export default class {
   static method = 'get';
@@ -12,13 +12,13 @@ export default class {
       meta: {
         implementationName: 'paradise-opensource',
         implementationVersion: '1.0.0',
-        serverName: config.serverName,
+        serverName: config.siteName,
         links: {
-          homepage: config.links?.homepage,
-          register: config.links?.register,
+          homepage: config.gate,
+          register: `${config.gate}/register`,
         },
       },
-      skinDomains: [config.host.replace(/^.*\/\/|\/.*$/g, ''), ...config.skinDomains],
+      skinDomains: [config.gate.replace(/^.*\/\/|\/.*$/g, '')],
       signaturePublickey: getPublicKey(),
     };
   }

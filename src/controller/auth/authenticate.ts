@@ -5,7 +5,7 @@ import sessionService from '@/service/passport/session';
 
 import { extraCodePassport } from '@/utils/errorCodeList';
 
-import config from '@/config/passport';
+import config from '@/config/general';
 
 import 'dotenv/config';
 

@@ -3,8 +3,7 @@ import { Op } from 'sequelize';
 import sequelize from '@/dbhelper/paradise';
 import { sign } from '@/utils/validateCertification';
 
-import config from '@/config/paradise';
-import passportConfig from '@/config/passport';
+import config from '@/config/general';
 
 import characterService from './character';
 import texture from './texture';
@@ -64,7 +63,7 @@ class YggdrasilService {
         type: 'TOKEN',
         available: 1,
         createdAt: {
-          [Op.gt]: new Date(new Date().getTime() - passportConfig.sessionValidTime),
+          [Op.gt]: new Date(new Date().getTime() - config.sessionValidTime),
         },
       },
     });
@@ -79,7 +78,7 @@ class YggdrasilService {
         type: 'TOKEN',
         available: 1,
         createdAt: {
-          [Op.gt]: new Date(new Date().getTime() - passportConfig.sessionValidTime),
+          [Op.gt]: new Date(new Date().getTime() - config.sessionValidTime),
         },
       },
     });
@@ -128,7 +127,7 @@ class YggdrasilService {
         const skin = await texture.getTexture({ uuid: skinId });
         const skinHash = skin?.getDataValue('hash');
         textures.SKIN = {
-          url: `${config.host?.replace(/\/+$/g, '') || ''}/yggdrasil/textures/${skinHash}`,
+          url: `${config.gate}/api/yggdrasil/textures/${skinHash}`,
           metadata: {
             model: character?.getDataValue('skinType') === 0 ? 'default' : 'slim',
           },
@@ -138,7 +137,7 @@ class YggdrasilService {
         const cape = await texture.getTexture({ uuid: capeId });
         const capeHash = cape?.getDataValue('hash');
         textures.CAPE = {
-          url: `${config.host?.replace(/\/+$/g, '') || ''}/yggdrasil/textures/${capeHash}`,
+          url: `${config.gate}/api/yggdrasil/textures/${capeHash}`,
         };
       }
       properties.push(this.getSignedProperty({

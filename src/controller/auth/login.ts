@@ -7,7 +7,7 @@ import userService from '@/service/passport/user';
 
 import { extraCodePassport } from '@/utils/errorCodeList';
 
-import config from '@/config/passport';
+import config from '@/config/general';
 
 import 'dotenv/config';
 
